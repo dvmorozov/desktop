@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Desktop</title>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/desktop.css">
+
+    <script type="text/javascript" src="~/Scripts/ext-core.js"></script>
+    <script type="text/javascript" src="~/Scripts/classes.js"></script>
+
+    <script type="text/javascript">
+        Ext.Loader.setPath({
+            'Ext.ux.desktop': 'js',
+            MyDesktop: ''
+        });
+
+        Ext.require('MyDesktop.App');
+
+        var myDesktopApp;
+        Ext.onReady(function () {
+            myDesktopApp = new MyDesktop.App();
+        });
+    </script>
+</head>
+<body>
+    <a href="http://www.sencha.com/" target="_blank" alt="Powered by Ext JS" id="poweredby"><div></div></a>
+</body>
+</html>

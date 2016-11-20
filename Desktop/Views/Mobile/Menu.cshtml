@@ -1,0 +1,53 @@
+﻿@{
+	ViewBag.Title = "Home";
+	Layout = "~/Views/Shared/_LayoutMobile.cshtml";
+}
+
+@* ReSharper disable UnknownCssClass *@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<table style="width: 100%;">
+			<tbody>
+				<tr>
+					<td>
+						@{
+							<div id="ellipsisOwner">
+								<div class="ellipsisInner" id="ellipsisInner">
+									<span class="ellipsis">
+										@ViewBag.Message
+									</span>
+								</div>
+							</div>
+						}
+					</td>
+					<td style="width: 1%;">
+						@if (ViewBag.Month != null && ViewBag.Year != null && ViewBag.MonthTotal != null)
+						{
+							var dt = new DateTime((int)ViewBag.Year, (int)ViewBag.Month, 1);
+							<div style="text-align: center; vertical-align: central;">
+								<span class="badge pull-right" style="margin-left: 8px;">@Html.Raw(@dt.ToString("MMM") + " | " + (int)ViewBag.MonthTotal)</span>
+							</div>
+						}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-body">
+		<ul class="nav nav-pills nav-stacked">
+			<li role="presentation">@Html.Partial("_LogOnPartial")</li>
+			@if (Request.IsAuthenticated)
+			{
+				<li role="presentation">@Html.ActionLink("Account", "Index", "Manage")</li>
+			}
+			else
+			{
+				<li role="presentation" style="font-size: large;">@Html.ActionLink("Sign Up", "Register", "Account")</li>
+			}
+			<li role="presentation">@Html.ActionLink("Contribute", "Contribute", "Mobile")</li>
+			<li role="presentation">@Html.ActionLink("About", "About", "Mobile")</li>
+		</ul>
+	</div>
+	@Html.Partial("Tags")
+</div>
+@* ReSharper restore UnknownCssClass *@

@@ -1,0 +1,50 @@
+﻿@{
+	ViewBag.Title = "About";
+	Layout = "~/Views/Shared/_LayoutMobile.cshtml";
+}
+
+@* ReSharper disable UnknownCssClass *@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<table style="width: 100%;">
+			<tbody>
+				<tr>
+					<td style="width: 1%;">
+						<div style="white-space: nowrap;">
+							@Html.Partial("TopHomeButton")
+						</div>
+					</td>
+					<td>
+						<div id="ellipsisOwner">
+							<div class="ellipsisInner" id="ellipsisInner">
+								<span class="ellipsis">
+									@Html.Raw(ViewBag.Title)
+								</span>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-body">
+		Thanks for interest to this application!
+		<br/>
+		<br/>
+		More information about me you can find 
+		in my LinkedIn profile
+		<a href="https://ru.linkedin.com/pub/dmitry-morozov/59/90a/794/ru"><img src="/Content/LinkedIn.jpg"/></a>
+		<br/>
+		<br/>
+		<div class="well">
+			Copyright &copy; 2016 Dmitry Morozov <br/> Rev. 4107 <br/> Last updated 19 Nov 2016 at 18:10:15
+		</div>
+	</div>
+	@Html.Partial("Tags")
+	<div class="panel-footer">
+		<div class="btn-group" role="group">
+			@Html.Partial("BottomHomeButton")
+		</div>
+	</div>
+</div>
+@* ReSharper restore UnknownCssClass *@
